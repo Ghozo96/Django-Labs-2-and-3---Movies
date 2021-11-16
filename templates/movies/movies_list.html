@@ -1,0 +1,49 @@
+{% extends 'base/base_layout.html' %}
+
+{% block title %} Movies {% endblock %} 
+
+{% block mainblock %}
+
+{% include 'partials/_alertmsg.html' %}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Description</th>
+			<th scope="col">View</th>
+			<th scope="col">Update</th>
+			<th scope="col">Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for movie in movies %}
+		<tr>
+			<th scope="row">{{ movie.name }}</th>
+			<td>{{ movie.description | truncatewords:10 }}</td>
+			<td>
+				<a href="{% url 'details' movie.id %}" class="btn btn-success"
+					>View</a
+				>
+			</td>
+			<td>
+				<a href="{% url 'update' movie.id %}" class="btn btn-light"
+					>Update</a
+				>
+			</td>
+			<td>
+				<a href="{% url 'delete' id=movie.id name=movie.name %}" class="btn btn-danger"
+					>Delete</a
+				>
+			</td>
+		</tr>
+		{% empty %}
+		<p>Sorry, no movies available</p>
+		{% endfor %}
+	</tbody>
+</table>
+<div class="text-center">
+	<a href="{% url 'create' %}" class="btn btn-info my-3">Create New Movie</a>
+</div>
+
+{% endblock %}

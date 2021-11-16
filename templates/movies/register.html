@@ -1,0 +1,88 @@
+{% extends 'base/base_layout.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block mainblock %}
+
+<div class="my-3">
+  <form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="first_name"
+          placeholder="First Name"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Last name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="last_name"
+          placeholder="Last name"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          placeholder="Username"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          placeholder="ex: johndoe@gmail.com"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Enter password"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password2"
+          placeholder="Confirm password"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-info col-md-6">Register</button>
+  </form>
+</div>
+
+	
+
+{% endblock %}
